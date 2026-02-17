@@ -8,6 +8,15 @@
  };
 
 
+ const loadProducts = () => {
+     document.getElementById('contentChange').classList.add('hidden');
+ };
+
+ const loadHome = () => {
+     document.getElementById('contentChange').classList.remove('hidden');
+ }
+
+
  const displayProducts = (products) => {
      const grid = document.getElementById('productGrid');
      grid.innerHTML = '';
