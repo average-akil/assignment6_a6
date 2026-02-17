@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwiftCart - E-Commerce</title>
+    <!-- Tailwind and daisyUI -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- front Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="mx-auto w-11/12">
+    <!-- navbar -->
+    <div class="navbar bg-base-100 sticky top-0 z-50 shadow-sm">
+      <div class="navbar-start">
+        <a class="btn btn-ghost text-xl font-bold text-primary">SwiftCart</a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="#" onclick="filterProducts('all')">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a>About</a></li>
+          <li><a>Contact</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end gap-2">
+        <button class="btn btn-ghost btn-circle">
+          <i class="fas fa-shopping-cart text-xl"></i>
+        </button>
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <i class="fas fa-bars text-xl"></i>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          ></ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="contentChange">
+      <!-- hero section -->
+      <div
+        class="hero min-h-[500px] relative bg-[url('./Assets/banner-image.png')] bg-cover bg-center"
+      >
+        <div class="hero-overlay bg-black bg-opacity-60"></div>
+        <div
+          class="relative z-10 container mx-auto px-4 flex items-center h-full"
+        >
+          <div class="max-w-md text-neutral-content">
+            <h1 class="mb-5 text-5xl font-bold">Best Collection For You</h1>
+            <p class="mb-5">
+              Discover the latest trends in fashion, electronics, and more. Shop
+              with confidence and style at SwiftCart.
+            </p>
+            <button class="btn btn-primary">Shop Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Choose us  -->
+      <div class="py-16 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Why Choose Us</h2>
+          <p class="text-gray-600">
+            We provide the best shopping experience with top-notch services.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body items-left">
+              <div
+                class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+              >
+                <img src="/Assets/Screenshot_174.png" alt="" />
+              </div>
+              <h3 class="card-title">Fast Delivery</h3>
+              <p class="text-sm text-gray-600">
+                Get your orders delivered to your doorstep quickly and
+                efficiently.
+              </p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body items-left">
+              <div
+                class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+              >
+                <img src="/Assets//Screenshot_175.png" alt="" />
+              </div>
+              <h3 class="card-title">24/7 Support</h3>
+              <p class="text-sm text-gray-600">
+                Our support team is available around the clock to assist you.
+              </p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body items-left">
+              <div
+                class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+              >
+                <img src="/Assets//Screenshot_176.png" alt="" />
+              </div>
+              <h3 class="card-title">Secure Payment</h3>
+              <p class="text-sm text-gray-600">
+                Experience safe and secure transactions with our encrypted
+                payment systems.
+              </p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body items-left">
+              <div
+                class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+              >
+                <img src="/Assets/Screenshot_177.png" alt="" />
+              </div>
+              <h3 class="card-title">Easy Returns</h3>
+              <p class="text-sm text-gray-600">
+                Not satisfied? Return your products easily within 30 days.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- products and API stuffs -->
+
+    <div id="products" class="py-16 px-4 max-w-6xl mx-auto">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4"
+      >
+        <h2 class="text-3xl font-bold">Trending Now</h2>
+      </div>
+      <div
+        id="productGrid"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+      ></div>
+    </div>
+
+    <!-- footer -->
+    <footer></footer>
+
+    <script src="/functionalities.js"></script>
+  </body>
+</html>
