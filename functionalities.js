@@ -76,7 +76,7 @@ const displayProducts = (products) => {
                 <h3 class="card-title text-lg line-clamp-2">${product.title}</h3>
                 <p class="text-2xl font-bold text-primary">$${product.price}</p>
                 <div class="card-actions justify-between mt-4">
-                    <button class="btn btn-outline btn-sm" onclick="showDetails(${product.id})"><i class="fa-solid fa-eye"></i> Details</button>
+                    <button class="btn btn-outline btn-sm" onclick="loadProductDetails(${product.id})"><i class="fa-solid fa-eye"></i> Details</button>
                     <button class="btn btn-primary btn-sm" onclick="addToCart(${product.id})">
                         <i class="fas fa-shopping-cart mr-2"></i>Add
                     </button>
@@ -87,5 +87,49 @@ const displayProducts = (products) => {
     });
 };
 
+const loadProductDetails = async (productId) => {
+    const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
+    const data = await res.json();
+    showDetails(data);
+};
+
+const showDetails = (productData) => {
+    const modalBox = document.getElementById('modal-content');
+    modalBox.innerHTML = ``;
+    modalBox.innerHTML = `
+        <div class="max-w-[668px] p-2 flex flex-col">
+            <img class=" rounded-lg bg-gray-100 p-4" src="${productData.image}">
+            <h2 class="text-2xl font-bold mt-4">${productData.title}</h2>
+            <div class="badge  w-fit mt-2 bg-blue-300">${productData.category}</div>
+            
+            <div class="grid grid-rows-2 grid-cols-2 gap-2 mt-4">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-star text-orange-400 text-sm"></i>
+                    <p class="text-slate-500 text-sm">Rating: ${productData.rating.rate} (${productData.rating.count} reviews)</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-tag text-sm"></i>
+                    <p class="text-slate-500 text-sm">Price: $${productData.price}</p>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="flex flex-col gap-2">
+                <h2 class="text-xl font-bold">Details Information</h2>
+                <p class="text-slate-400 text-sm">${productData.description}</p>
+            </div>
+            
+            <div class="modal-action justify-between mt-6">
+                
+                <button class="btn btn-primary" onclick="addToCart(${productData.id})">
+                    <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
+                </button>
+            </div>
+        </div>
+    `;
+    document.getElementById("my_modal_6").checked = true;
+};
+``
 loadCategories();
 loadAllProducts();
